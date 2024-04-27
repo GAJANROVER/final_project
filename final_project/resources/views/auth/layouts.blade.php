@@ -5,7 +5,8 @@
     <title>Gajan Travels</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="{{ asset('img/icon.ico') }}" type="image/icon type">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-YWznkfwQXVzYUoaLmCVglSAJiCEMUh3IkcvZexaEYlRgPLOAgAjzGjMhTRLwYViHCoyHOGUsCQyqKJzQ" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -18,13 +19,34 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('signupPage') }}">Book Vehicle</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('signupPage') }}">Vehicle Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('customerView') }}">Customer Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('signupPage') }}">Driver Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('signupPage') }}">Rides Reports</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('signupPage') }}">Sign up</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('loginPage') }}">Login</a>
                     </li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('signupPage') }}">Sign up</a>
+                    <li class=" nav-item">
+                        <a class="nav-link" href="{{ route('loginPage') }}">
+                            <i class="fas fa-sign-out-alt"></i> <!-- Bootstrap logout icon -->
+                        </a>
                     </li>
                 </ul>
             </div>

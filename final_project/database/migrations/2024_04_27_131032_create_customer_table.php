@@ -21,7 +21,6 @@ return new class extends Migration
             $table->date('custo_dob')->nullable();
             $table->string('custo_gender')->nullable();
             $table->string('custo_pw')->nullable();
-            $table->rememberToken();
             $table->timestamps();
         });
     }

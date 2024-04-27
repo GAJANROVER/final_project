@@ -12,20 +12,20 @@
             <div class="col-12 col-lg-9 col-xl-7">
                 <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                     <div class="card-body p-4 p-md-5">
-                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Create An Account</h3>
-                        <form method="POST" action="{{ route('signup') }}" id="signupForm">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Edit Customer</h3>
+                        <form method="POST" action="{{route('customerUpdate', ['id' => $customer[0]->custo_id])}}" id="signupForm">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-4">
                                     <div data-mdb-input-init class="form-outline">
                                         <label class="form-label mandatory-field">Name</label>
-                                        <input type="text" id="name" name="name" class="form-control form-control-lg" required />
+                                        <input type="text" id="name" name="name" class="form-control form-control-lg" value="{{ $customer[0]->custo_name }}" required />
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div data-mdb-input-init class="form-outline">
                                         <label class="form-label mandatory-field">Email</label>
-                                        <input type="text" id="email" name="email" class="form-control form-control-lg" required />
+                                        <input type="text" id="email" name="email" class="form-control form-control-lg" value="{{ $customer[0]->custo_email }}" required />
                                         <span id="emailError" class="error-message"></span>
                                     </div>
                                 </div>
@@ -35,7 +35,7 @@
                                 <div class="col-md-12 mb-4 d-flex align-items-center">
                                     <div data-mdb-input-init class="form-outline datepicker w-100">
                                         <label class="form-label">Address</label>
-                                        <input type="text" class="form-control form-control-lg" id="address" name="address" />
+                                        <input type="text" class="form-control form-control-lg" id="address" name="address" value="{{ $customer[0]->custo_address }}" />
                                     </div>
                                 </div>
                             </div>
@@ -43,13 +43,13 @@
                                 <div class="col-md-6 mb-4 pb-2">
                                     <div data-mdb-input-init class="form-outline">
                                         <label class="form-label mandatory-field">National ID Number</label>
-                                        <input type="text" id="nic" class="form-control form-control-lg" name="nic" required />
+                                        <input type="text" id="nic" class="form-control form-control-lg" name="nic" value="{{ $customer[0]->custo_nic }}" required />
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4 pb-2">
                                     <div data-mdb-input-init class="form-outline">
                                         <label class="form-label">Mobile Number</label>
-                                        <input type="text" id="mobile" class="form-control form-control-lg" name="mobile" />
+                                        <input type="text" id="mobile" class="form-control form-control-lg" name="mobile" value="{{ $customer[0]->custo_pno }}" />
                                         <span id="mobileError" class="error-message"></span>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@
                                 <div class="col-md-6 mb-4 pb-2">
                                     <div data-mdb-input-init class="form-outline">
                                         <label class="form-label">Date of birth</label>
-                                        <input type="date" id="dob" class="form-control form-control-lg" name="dob" />
+                                        <input type="date" id="dob" class="form-control form-control-lg" name="dob" value="{{ $customer[0]->custo_dob }}" />
                                         <span id="dobError" class="error-message"></span>
                                     </div>
                                 </div>
@@ -66,23 +66,14 @@
                                 <div class="col-md-6 mb-4 pb-2">
                                     <label class="form-label">Gender</label>
                                     <select class="select form-control-lg" style="width: 100%;" name="gender" id="gender">
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                        <option value="other">Other</option>
+                                        <option value="male" @if($customer[0]->custo_gender === 'male') selected @endif>Male</option>
+                                        <option value="female" @if($customer[0]->custo_gender === 'female') selected @endif>Female</option>
+                                        <option value="other" @if($customer[0]->custo_gender === 'other') selected @endif>Other</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-4 pb-2">
-                                    <div data-mdb-input-init class="form-outline">
-                                        <label class="form-label mandatory-field">Password</label>
-                                        <input type="password" id="pw" class="form-control form-control-lg" name="pw" required />
-                                        <span id="pwError" class="error-message"></span>
-                                    </div>
-                                </div>
-                            </div>
                             <div>
-                                <button type="submit" class="btn btn-outline-success">Sign Up</button>
+                                <button type="submit" class="btn btn-outline-success">Update</button>
                             </div>
                             @if (session('success'))
                             <div class="alert alert-success" role="alert">
